@@ -1,0 +1,136 @@
+/* CSS Styles for the Premier Schools Exhibition Button Component */
+
+.pse-button {
+  display: inline-flex;
+  align-items: stretch;
+  height: 60px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--sans, system-ui, -apple-system, sans-serif);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  vertical-align: middle;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  text-decoration: none;
+  overflow: visible;
+}
+
+/* Icon Box (Left Square) */
+.pse-btn-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px 0 0 4px;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* SVG Arrow Icon */
+.pse-btn-arrow-svg {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Text Box (Right Rectangle) */
+.pse-btn-text-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  height: 60px;
+  border-radius: 0 4px 4px 0;
+  border: 2px solid;
+  border-left: none;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+/* --- Dark / Gradient Variant --- */
+.pse-btn-dark .pse-btn-icon-box {
+  background: linear-gradient(90deg, #3F186A 0%, #000E38 100%);
+  color: #ffffff;
+}
+
+.pse-btn-dark .pse-btn-text-box {
+  border-color: #000E38;
+  color: #030E3B;
+  background: transparent;
+}
+
+/* Dark Variant Hover & Active States */
+.pse-btn-dark:hover .pse-btn-icon-box {
+  background: linear-gradient(90deg, #4d2080 0%, #001654 100%);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.pse-btn-dark:hover .pse-btn-text-box {
+  background: rgba(0, 14, 56, 0.04);
+  color: #000E38;
+  border-color: #000E38;
+}
+
+/* --- Light / White Variant --- */
+.pse-btn-light .pse-btn-icon-box {
+  background: #ffffff;
+  color: #2A1459;
+}
+
+.pse-btn-light .pse-btn-text-box {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+/* Light Variant Hover & Active States */
+.pse-btn-light:hover .pse-btn-icon-box {
+  background: #f4f3ec;
+  color: #1e0b40;
+}
+
+.pse-btn-light:hover .pse-btn-text-box {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Global Hover & Micro-interactions --- */
+.pse-button:hover .pse-btn-arrow-svg {
+  transform: translate(3px, -3px);
+}
+
+.pse-button:active {
+  transform: scale(0.97);
+}
+
+/* Accessibility Focus States */
+.pse-button:focus-visible {
+  outline: none;
+}
+
+.pse-button:focus-visible .pse-btn-icon-box,
+.pse-button:focus-visible .pse-btn-text-box {
+  box-shadow: 0 0 0 3px rgba(170, 59, 255, 0.6);
+}
+
+/* Disabled State */
+.pse-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.pse-button:disabled .pse-btn-arrow-svg {
+  transform: none !important;
+}

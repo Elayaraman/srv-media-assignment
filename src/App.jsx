@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import { Button } from './components/Button'
 import './App.css'
 
 function App() {
@@ -28,6 +29,11 @@ function App() {
         >
           Count is {count}
         </button>
+
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '40px 0', flexWrap: 'wrap', padding: '20px', background: 'rgba(0,0,0,0.05)', borderRadius: '8px' }}>
+          <Button variant="dark">Register Now</Button>
+          <Button variant="light" style={{ background: '#2A1459' }}>Submit</Button>
+        </div>
       </section>
 
       <div className="ticks"></div>
