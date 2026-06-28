@@ -98,6 +98,30 @@ const ImageColumn = ({ images, direction = 'down', isPaused, className = '' }) =
 };
 
 /* ------------------------------------------------------------------ */
+/*  MobileHorizontalScroller - Auto-scrolling horizontal strip        */
+/* ------------------------------------------------------------------ */
+const MobileHorizontalScroller = ({ images }) => {
+  const strip = [...images, ...images];
+  return (
+    <div className="hero-mobile-scroller md:hidden" aria-hidden="true">
+      <div className="hero-mobile-track">
+        {strip.map((img, i) => (
+          <div key={`mob-${img.src}-${i}`} className="hero-mobile-cell">
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="hero-image-cell__img"
+              loading={i < 4 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ------------------------------------------------------------------ */
 /*  HeroSection – main export                                          */
 /* ------------------------------------------------------------------ */
 export const HeroSection = () => {
@@ -136,61 +160,72 @@ export const HeroSection = () => {
     >
 
       <div className="hero-section__container">
+
         {/* LEFT: Event copy & location slider */}
         <div className="hero-section__left">
-          <div className="hero-section__copy">
-            <h1 className="hero-section__heading">
-              <span className="hero-section__heading-discover">
-                Discover Gurugram's
-              </span>
-              <span className="hero-section__heading-top">
-                Top 30+ Schools
-              </span>
-              <span className="hero-section__heading-sub">
-                ALL IN ONE PLACE
-              </span>
-            </h1>
+          
+          <div className="hero-section__mobile-bg-wrapper">
+            {/* MOBILE ONLY: Scroller */}
+            <MobileHorizontalScroller 
+              images={[...heroColumns[0], ...heroColumns[1], ...heroColumns[2]]} 
+            />
+
+            <div className="hero-section__copy">
+              <h1 className="hero-section__heading">
+                <span className="hero-section__heading-discover">
+                  Discover Gurugram's
+                </span>
+                <span className="hero-section__heading-top">
+                  Top 30+ Schools
+                </span>
+                <span className="hero-section__heading-sub">
+                  ALL IN ONE PLACE
+                </span>
+              </h1>
+            </div>
           </div>
 
           {/* Static Location / Date Pill */}
-          <div
-            className="mt-8 relative inline-flex items-center justify-center p-[6px] rounded-full shadow-sm w-fit max-w-full"
-            style={{ background: 'linear-gradient(180deg, #FFCC81 -43.71%, #E9C79F 118.98%)' }}
-          >
-            <div className="flex items-center px-8 py-5 rounded-full border-[1.5px] border-dashed border-[#D7AC77] w-full gap-6">
+          <div className="hero-section__pill-container">
+            <div
+              className="-mt-2 md:mt-8 relative inline-flex items-center justify-center p-[4px] md:p-[6px] rounded-[40px] shadow-sm w-fit max-w-full z-10"
+              style={{ background: 'linear-gradient(180deg, #FFCC81 -43.71%, #E9C79F 118.98%)' }}
+            >
+              <div className="flex items-center px-4 py-3 md:px-8 md:py-5 rounded-[40px] border-[1.5px] border-dashed border-[#D7AC77] w-full gap-3 md:gap-6">
 
-              <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
-                <span className="text-[#1B1754] font-bold text-2xl leading-tight">Apparel House,</span>
-                <span className="text-[#1B1754] text-lg font-medium opacity-90">Sec 44, Gurugram</span>
+                <div className="flex flex-col text-left shrink-0">
+                  <span className="text-[#1B1754] font-bold text-base md:text-2xl leading-tight whitespace-nowrap">Apparel House,</span>
+                  <span className="text-[#1B1754] text-[13px] md:text-lg font-medium opacity-90 whitespace-nowrap">Sec 44, Gurugram</span>
+                </div>
+
+                <div className="w-[1px] md:w-[1.5px] h-[36px] md:h-[46px] bg-[#1B1754]/30 shrink-0" />
+
+                <div className="flex flex-col text-left shrink-0">
+                  <span className="text-[#1B1754] font-bold text-base md:text-2xl leading-tight whitespace-nowrap">2-3 August 2025</span>
+                  <span className="text-[#1B1754] text-[11px] md:text-lg font-medium opacity-90 whitespace-nowrap">Sat-Sun | 10AM-6PM</span>
+                </div>
+
               </div>
-
-              <div className="w-[1.5px] h-[46px] bg-[#1B1754]/30 shrink-0" />
-
-              <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
-                <span className="text-[#1B1754] font-bold text-2xl leading-tight">2-3 August 2025</span>
-                <span className="text-[#1B1754] text-lg font-medium opacity-90">Sat-Sun | 10AM - 6PM</span>
-              </div>
-
             </div>
           </div>
         </div>
 
         {/* CENTER: Dual-axis image scroller */}
         <div
-          className="hero-section__scroller"
+          className="hero-section__scroller hidden lg:flex"
           onMouseEnter={() => setScrollerPaused(true)}
           onMouseLeave={() => setScrollerPaused(false)}
           onFocus={() => setScrollerPaused(true)}
           onBlur={() => setScrollerPaused(false)}
           aria-label="School exhibition photo gallery"
         >
-          <ImageColumn images={heroColumns[0]} direction="down" isPaused={scrollerPaused} />
-          <ImageColumn images={heroColumns[1]} direction="up" isPaused={scrollerPaused} />
-          <ImageColumn images={heroColumns[2]} direction="down" isPaused={scrollerPaused} />
+          <ImageColumn images={heroColumns[0]} direction="down" isPaused={scrollerPaused} className="mt-20 lg:mt-[120px]" />
+          <ImageColumn images={heroColumns[1]} direction="up" isPaused={scrollerPaused} className="mt-0 lg:-mt-4" />
+          <ImageColumn images={heroColumns[2]} direction="down" isPaused={scrollerPaused} className="mt-12 lg:mt-[72px]" />
         </div>
 
-        {/* RIGHT: Enquiry Form */}
-        <div className="hero-section__right ">
+        {/* RIGHT: Enquiry Form (Hidden on mobile) */}
+        <div className="hero-section__right hidden md:flex">
           <form
             id="register-form"
             className="hero-enquiry-form"

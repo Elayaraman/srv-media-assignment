@@ -22,7 +22,7 @@ export const Header = () => {
           {/* Figma Brand Logo Image (X=76px, Y=3px, size 201px x 157px) */}
           <a
             href="/"
-            className="absolute left-[76px] top-[3px] w-[201px] h-[157px] z-20 block hidden md:block transition-transform duration-300 hover:scale-[1.02]"
+            className="absolute left-[76px] top-[3px] w-[201px] h-[157px] z-20 hidden md:block transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
               src="/images/pse_logo.png"
@@ -40,9 +40,9 @@ export const Header = () => {
             />
           </a>
 
-          {/* Right side CTA Action Button (Centered vertically in the 100px header) */}
-          <div className="ml-auto z-10">
-            <Button variant="dark" >
+          {/* Right side CTA Action Button (Hidden on mobile) */}
+          <div className="ml-auto z-10 hidden md:block">
+            <Button variant="dark">
               Register Now
             </Button>
           </div>
@@ -50,16 +50,16 @@ export const Header = () => {
         </div>
       </header>
 
-      {/* 2. Sticky Dark Header (always under white header; sticks to top after white header scrolls away) */}
+      {/* 2. Sticky Dark Header (Hidden on mobile) */}
       <header
-        className="sticky top-0 -mt-[100px] w-full h-[100px] bg-gradient-to-r from-[#3F186A] to-[#000E38] border-b border-[#3F269C]/40 shadow-lg z-40"
+        className="hidden md:block sticky top-0 -mt-[100px] w-full h-[100px] bg-gradient-to-r from-[#3F186A] to-[#000E38] border-b border-[#3F269C]/40 shadow-lg z-40"
       >
         <div className="max-w-[1920px] mx-auto h-full flex items-center justify-between px-6 md:px-12 lg:px-[119px] relative">
 
           {/* Logo Frame (centered vertically in the dark header: X=124px, Y=7px, size 104px x 85px) */}
           <a
             href="/"
-            className="absolute left-6 md:left-[124px] top-[7px] w-[104px] h-[85px] z-20 block transition-transform duration-300 hover:scale-[1.02]"
+            className="absolute left-[124px] top-[7px] w-[104px] h-[85px] z-20 block transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
               src="/images/pse_logo.png"

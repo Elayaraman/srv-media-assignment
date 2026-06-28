@@ -143,6 +143,15 @@ body {
   }
 }
 
+/* --- Utilities --- */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* --- Hero Section Root --- */
 .hero-section {
   width: 100%;
@@ -628,6 +637,17 @@ body {
   }
 }
 
+/* Ensure wrappers don't break desktop grid */
+@media (min-width: 769px) {
+  .hero-section__mobile-bg-wrapper,
+  .hero-section__pill-container {
+    display: contents;
+  }
+  .hero-mobile-scroller {
+    display: none;
+  }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .hero-section {
@@ -635,16 +655,93 @@ body {
   }
 
   .hero-section__container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 32px;
-    padding: 36px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0 0;
+    gap: 0;
+    min-height: auto;
+  }
+
+  /* SVG Background wrapper for top section */
+  .hero-section__mobile-bg-wrapper {
+    background-color: white; /* Make the transparent area under the arc white */
+    background-image: url('/images/mobile-hero-bg.svg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 32px 24px 40px; /* Space for the arc at the bottom */
+    margin: -32px -24px 0; /* Full width */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .hero-mobile-scroller {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .hero-mobile-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: scroll-horizontal 30s linear infinite;
+    padding: 0 24px;
+  }
+
+  @keyframes scroll-horizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .hero-mobile-cell {
+    width: 160px;
+    height: 240px;
+    border-radius: 80px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .hero-section__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-section__copy {
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  /* The pill needs a white background */
+  .hero-section__pill-container {
+    background-color: white;
+    width: 100%;
+    padding: 0 24px 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* The form is hidden on mobile */
+  .hero-section__right {
+    display: none !important;
+  }
+
+  .hero-enquiry-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .hero-section__scroller {
+    display: none;
   }
 
   .hero-section__left {
     max-width: 100%;
     padding-right: 0;
-    gap: 28px;
+    gap: 0;
   }
 
   .hero-section__right {
