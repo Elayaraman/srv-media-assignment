@@ -18,12 +18,14 @@ function App() {
         Skip to main content
       </a>
       <Header />
-      <HeroSection />
-      <StatsSection />
-      <ParticipatingSchoolsSection />
-      <ChooseSchoolSection />
-      <AppointmentBookingSection />
-      <MustVisitSection />
+      <main id="main-content">
+        <HeroSection />
+        <StatsSection />
+        <ParticipatingSchoolsSection />
+        <ChooseSchoolSection />
+        <AppointmentBookingSection />
+        <MustVisitSection />
+      </main>
       <Footer />
     </>
   )
