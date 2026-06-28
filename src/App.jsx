@@ -2,9 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import { AppointmentBookingSection } from './components/AppointmentBannerSection'
 import { Button } from './components/Button'
+import { ChooseSchoolSection } from './components/ChooseSchoolSection'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { MustVisitSection } from './components/MustVisitSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -48,6 +51,9 @@ function App() {
         </div>
       </section>
 
+      <ChooseSchoolSection />
+      <AppointmentBookingSection />
+      <MustVisitSection />
       <Footer />
     </>
   )
