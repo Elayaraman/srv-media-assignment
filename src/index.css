@@ -209,7 +209,7 @@ body {
 
 .hero-section__heading-discover {
   display: block;
-  font-size: 36px;
+  font-size: clamp(20px, 2.5vw, 36px);
   font-weight: 700;
   line-height: 1.5;
   background: linear-gradient(180deg, #FFCC81 0%, #E9C79F 100%);
@@ -223,7 +223,7 @@ body {
 
 .hero-section__heading-top {
   display: block;
-  font-size: 54px;
+  font-size: clamp(28px, 3.5vw, 54px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -236,7 +236,7 @@ body {
 
 .hero-section__heading-sub {
   display: block;
-  font-size: 30px;
+  font-size: clamp(16px, 2vw, 30px);
   font-weight: 400;
   line-height: 1.5;
   text-transform: uppercase;
@@ -393,7 +393,7 @@ body {
 .hero-section__scroller {
   display: flex;
   gap: 1.2vw;
-  height: 600px;
+  height: clamp(350px, 40vw, 600px);
   align-items: flex-start;
   flex-shrink: 0;
   padding: 0 1vw;
@@ -402,7 +402,7 @@ body {
 .hero-image-column {
   width: 14vw;
   max-width: 201px;
-  height: 600px;
+  height: clamp(350px, 40vw, 600px);
   border-radius: 100px;
 }
 
@@ -447,7 +447,8 @@ body {
 }
 
 .hero-enquiry-form {
-  width: 380px;
+  width: 28vw;
+  max-width: 380px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(6, 21, 50, 0.2) 100%);
   -webkit-backdrop-filter: blur(12.5px);
   /* Safari fallback */
@@ -563,76 +564,6 @@ body {
 /* ===================================================================
    HERO RESPONSIVE
    =================================================================== */
-
-/* Tablet */
-@media (max-width: 1280px) {
-  .hero-section__container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    padding: 48px 40px;
-    gap: 32px;
-  }
-
-  .hero-section__left {
-    grid-column: 1 / 2;
-    grid-row: 1;
-  }
-
-  .hero-section__right {
-    grid-column: 2 / 3;
-    grid-row: 1;
-    justify-content: center;
-  }
-
-  /* Scroller hidden on tablet to give space to form */
-  .hero-section__scroller {
-    display: none;
-  }
-
-  .hero-section__heading-top {
-    font-size: 48px;
-  }
-
-  .hero-section__heading-discover {
-    font-size: 26px;
-  }
-
-  .hero-section__heading-sub {
-    font-size: 22px;
-  }
-
-  .hero-enquiry-form {
-    width: 100%;
-    max-width: 380px;
-  }
-}
-
-/* Smaller desktop / large tablet — scroller and form both hidden */
-@media (max-width: 1024px) {
-  .hero-section__container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 0;
-    padding: 40px 32px;
-  }
-
-  .hero-section__left {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .hero-section__scroller {
-    display: none;
-  }
-
-  .hero-section__right {
-    display: none;
-  }
-
-  .hero-section__glow {
-    left: 60%;
-  }
-}
 
 /* Ensure wrappers don't break desktop grid */
 @media (min-width: 769px) {
