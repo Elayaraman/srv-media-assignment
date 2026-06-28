@@ -7,6 +7,7 @@ import { Button } from './components/Button'
 import { ChooseSchoolSection } from './components/ChooseSchoolSection'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { ParticipatingSchoolsSection } from './components/ParticipatingSchoolsSection'
 import { MustVisitSection } from './components/MustVisitSection'
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         </div>
       </section>
 
+      <ParticipatingSchoolsSection />
       <ChooseSchoolSection />
       <AppointmentBookingSection />
       <MustVisitSection />
