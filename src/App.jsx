@@ -3,12 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import { Button } from './components/Button'
+import { Header } from './components/Header'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <Header />
       <section className="flex flex-col gap-6 justify-center items-center grow py-12 px-8 max-w-full md:py-8 md:px-5 md:gap-[18px]">
         <div className="relative">
           <img src={heroImg} className="relative z-0 mx-auto w-[170px]" width="170" height="179" alt="" />
