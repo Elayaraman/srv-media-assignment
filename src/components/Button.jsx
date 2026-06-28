@@ -28,7 +28,7 @@ export const Button = React.forwardRef(({
   const hasBg = className.split(' ').some(c => c.startsWith('bg-'));
 
   const handleClick = (e) => {
-    setLocalClicked(true);
+    setLocalClicked(prev => !prev);
     if (onClick) {
       onClick(e);
     }
@@ -63,7 +63,7 @@ export const Button = React.forwardRef(({
         <svg
           className={`
             block transition-transform duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] origin-center
-            ${isClicked ? 'rotate-45 translate-x-0 translate-y-0' : 'group-hover:translate-x-[3px] group-hover:-translate-y-[3px]'}
+            ${isClicked ? 'rotate-45 translate-x-[12px] translate-y-0' : 'group-hover:translate-x-[3px] group-hover:-translate-y-[3px]'}
           `}
           width="60"
           height="60"
@@ -102,7 +102,14 @@ export const Button = React.forwardRef(({
           }
         `}
       >
-        {text || children}
+        <span
+          className={`
+            transition-transform duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)]
+            ${isClicked ? '-translate-x-[16px]' : 'translate-x-0'}
+          `}
+        >
+          {text || children}
+        </span>
       </span>
     </button>
   );
