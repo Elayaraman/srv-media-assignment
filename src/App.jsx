@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import { Button } from './components/Button'
+import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 
 function App() {
@@ -47,99 +48,7 @@ function App() {
         </div>
       </section>
 
-      <div className="relative w-full before:content-[''] before:absolute before:-top-[4.5px] before:left-0 before:border-[5px] before:border-transparent before:border-l-[var(--border)] after:content-[''] after:absolute after:-top-[4.5px] after:right-0 after:border-[5px] after:border-transparent after:border-r-[var(--border)]"></div>
-
-      <section className="flex border-t border-[var(--border)] text-left md:flex-col md:text-center">
-        <div className="flex-1 p-8 md:px-5 md:py-6 border-r border-[var(--border)] md:border-r-0 md:border-b">
-          <svg className="mb-4 w-[22px] h-[22px] md:mx-auto text-[var(--text)]" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2 className="font-heading font-medium text-xl md:text-2xl leading-[118%] tracking-[-0.24px] mb-2 text-[var(--text-h)]">Documentation</h2>
-          <p className="m-0 text-[var(--text)]">Your questions, answered</p>
-          <ul className="list-none p-0 flex gap-2 mt-8 md:mt-5 md:flex-wrap md:justify-center">
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://vite.dev/"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <img className="h-[18px]" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://react.dev/"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <img className="h-[18px]" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="flex-1 p-8 md:px-5 md:py-6">
-          <svg className="mb-4 w-[22px] h-[22px] md:mx-auto text-[var(--text)]" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2 className="font-heading font-medium text-xl md:text-2xl leading-[118%] tracking-[-0.24px] mb-2 text-[var(--text-h)]">Connect with us</h2>
-          <p className="m-0 text-[var(--text)]">Join the Vite community</p>
-          <ul className="list-none p-0 flex gap-2 mt-8 md:mt-5 md:flex-wrap md:justify-center">
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://github.com/vitejs/vite"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <svg className="h-[18px] w-[18px] text-[var(--text-h)] dark:invert dark:brightness-200" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://chat.vite.dev/"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <svg className="h-[18px] w-[18px] text-[var(--text-h)] dark:invert dark:brightness-200" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://x.com/vite_js"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <svg className="h-[18px] w-[18px] text-[var(--text-h)] dark:invert dark:brightness-200" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li className="md:flex-[1_1_calc(50%-8px)]">
-              <a
-                href="https://bsky.app/profile/vite.dev"
-                target="_blank"
-                className="text-[var(--text-h)] text-base rounded-md bg-[var(--social-bg)] flex px-3 py-1.5 items-center gap-2 no-underline transition-shadow duration-300 hover:shadow-[var(--shadow)] md:w-full md:justify-center"
-              >
-                <svg className="h-[18px] w-[18px] text-[var(--text-h)] dark:invert dark:brightness-200" role="presentation" aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="relative w-full before:content-[''] before:absolute before:-top-[4.5px] before:left-0 before:border-[5px] before:border-transparent before:border-l-[var(--border)] after:content-[''] after:absolute after:-top-[4.5px] after:right-0 after:border-[5px] after:border-transparent after:border-r-[var(--border)]"></div>
-      <section className="h-[88px] border-t border-[var(--border)] md:h-12"></section>
+      <Footer />
     </>
   )
 }
