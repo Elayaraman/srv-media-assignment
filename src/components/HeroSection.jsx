@@ -209,7 +209,7 @@ export const HeroSection = () => {
           {/* Static Location / Date Pill */}
           <div className="hero-section__pill-container hero-section__mobile-bg-white">
             <div
-              className="-mt-2 md:mt-8 relative inline-flex items-center justify-center p-[4px] md:p-[6px] rounded-[40px] shadow-sm w-fit max-w-full z-10 mt-8"
+              className="-mt-2 md:mt-8 relative inline-flex items-center justify-center p-[4px] md:p-[6px] rounded-[40px] shadow-sm w-fit max-w-full z-10"
               style={{ background: 'linear-gradient(180deg, #FFCC81 -43.71%, #E9C79F 118.98%)' }}
             >
               <div className="flex items-center px-4 py-3 md:px-8 md:py-5 rounded-[40px] border-[1.5px] border-dashed border-[#D7AC77] w-full gap-3 md:gap-6">
