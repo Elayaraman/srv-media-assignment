@@ -153,16 +153,19 @@ export const HeroSection = () => {
           </div>
 
           {/* Static Location / Date Pill */}
-          <div className="mt-8 relative inline-flex items-center justify-center p-[6px] bg-[#FADDB5] rounded-full shadow-sm w-fit max-w-full">
-            <div className="flex items-center px-8 py-3 rounded-full border-[1.5px] border-dashed border-[#D7AC77] w-full gap-6">
-              
+          <div
+            className="mt-8 relative inline-flex items-center justify-center p-[6px] rounded-full shadow-sm w-fit max-w-full"
+            style={{ background: 'linear-gradient(180deg, #FFCC81 -43.71%, #E9C79F 118.98%)' }}
+          >
+            <div className="flex items-center px-8 py-5 rounded-full border-[1.5px] border-dashed border-[#D7AC77] w-full gap-6">
+
               <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
                 <span className="text-[#1B1754] font-bold text-2xl leading-tight">Apparel House,</span>
                 <span className="text-[#1B1754] text-lg font-medium opacity-90">Sec 44, Gurugram</span>
               </div>
-              
+
               <div className="w-[1.5px] h-[46px] bg-[#1B1754]/30 shrink-0" />
-              
+
               <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
                 <span className="text-[#1B1754] font-bold text-2xl leading-tight">2-3 August 2025</span>
                 <span className="text-[#1B1754] text-lg font-medium opacity-90">Sat-Sun | 10AM - 6PM</span>

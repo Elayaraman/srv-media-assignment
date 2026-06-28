@@ -7,9 +7,9 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-20">
+    <section className=" overflow-hidden bg-white py-12">
       <div className="mx-auto flex w-full max-w-[1600px] justify-center px-6 pt-10 md:px-10">
-        <div className="grid w-full max-w-[1440px] grid-cols-2 gap-x-[45px] gap-y-10 lg:grid-cols-4">
+        <div className="grid w-full max-w-[1240px] grid-cols-2 gap-x-[45px] gap-y-10 lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.src} className="flex justify-center">
               <img

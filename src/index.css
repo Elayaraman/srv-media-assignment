@@ -37,9 +37,9 @@
 /* Page Layout & Resets */
 body {
   margin: 0;
-  background-color: var(--bg);
   color: var(--text);
   font-family: var(--sans);
+  box-sizing: border-box;
 }
 
 #root {
@@ -50,7 +50,6 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
 @keyframes participating-logos-scroll-left {

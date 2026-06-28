@@ -52,7 +52,7 @@ export const Button = React.forwardRef(({
       <span
         className={`
           flex items-center justify-center w-[60px] h-[60px] rounded-l box-border 
-          transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] relative overflow-hidden shrink-0
+          transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] relative overflow-hidden shrink-0 z-10
           ${
             isLight
               ? 'bg-white text-[#2A1459] hover:bg-[#f4f3ec] hover:text-[#1e0b40]'
@@ -90,7 +90,7 @@ export const Button = React.forwardRef(({
       <span
         className={`
           flex items-center justify-center px-8 h-[60px] rounded-r border-2 border-l-0 border-solid 
-          box-border transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] whitespace-nowrap grow
+          box-border transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] whitespace-nowrap grow -ml-[2px]
           ${
             isLight
               ? isClicked

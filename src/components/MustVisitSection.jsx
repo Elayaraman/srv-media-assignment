@@ -45,16 +45,28 @@ export const MustVisitSection = () => {
   }
 
   return (
-    <section className="relative isolate overflow-hidden bg-white text-white">
-      <picture className="pointer-events-none absolute inset-0 -z-10 block h-full w-full">
-        <source media="(max-width: 767px)" srcSet="/images/must-visting-mobile-bg.svg" />
-        <img
-          src="/images/must-visting-bg-desktop.svg"
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover object-top"
-        />
-      </picture>
+    <section className="relative isolate overflow-hidden bg-white text-white mb-12 md:mb-[72px]">
+      <svg
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+        preserveAspectRatio="none"
+        viewBox="0 0 1920 768"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M0 583H1920V617.816C1169 819.046 748.424 815.194 0 617.816V583Z" fill="url(#must-visit-paint0)" />
+        <path d="M0 0H1920V583H0V0Z" fill="url(#must-visit-paint1)" />
+        <defs>
+          <linearGradient id="must-visit-paint0" x1="960" y1="767.298" x2="960" y2="207" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#000E38" />
+            <stop offset="1" stopColor="#3F186A" />
+          </linearGradient>
+          <linearGradient id="must-visit-paint1" x1="960" y1="583" x2="960" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#000E38" />
+            <stop offset="1" stopColor="#3F186A" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       <div className="relative mx-auto min-h-[768px] w-full max-w-[1920px] overflow-hidden px-0 pb-[116px] pt-[92px] max-md:min-h-[718px] max-md:pb-20 max-md:pt-16">
         <h2 className="mx-auto mb-[52px] max-w-[980px] px-6 text-center font-sans text-[48px] font-bold leading-[1.12] text-white max-md:mb-10 max-md:text-[34px] max-sm:text-[28px]">
@@ -68,7 +80,7 @@ export const MustVisitSection = () => {
           {reasons.map((reason) => (
             <article
               key={reason.title}
-              className="min-h-[378px] w-[415px] max-w-[calc(100vw-48px)] shrink-0 snap-start rounded-[19px] border-2 border-[#755797] bg-[linear-gradient(146deg,#DDBFFF_0%,#EDDDFF_100%)] px-[30px] py-[29px] text-[#2A1459] shadow-[0_0_0_1px_rgba(7,15,61,0.45)] max-md:min-h-[320px] max-md:w-[340px] max-md:px-6"
+              className="min-h-[378px] text-left w-[415px] max-w-[calc(100vw-48px)] shrink-0 snap-start rounded-[19px] border-2 border-[#755797] bg-[linear-gradient(146deg,#DDBFFF_0%,#EDDDFF_100%)] px-[30px] py-[29px] text-[#2A1459] shadow-[0_0_0_1px_rgba(7,15,61,0.45)] max-md:min-h-[320px] max-md:w-[340px] max-md:px-6"
             >
               <img src={reason.icon} alt="" className="mb-[34px] h-20 w-20 max-md:mb-7 max-md:h-16 max-md:w-16" />
               <h3 className="mb-[13px] max-w-[330px] text-[25px] font-bold leading-[1.45] tracking-[-0.02em] max-md:text-[22px]">
@@ -81,7 +93,7 @@ export const MustVisitSection = () => {
           ))}
         </div>
 
-        <div className="mt-[42px] flex justify-center gap-8 max-md:mt-9">
+        <div className="mt-[72px] flex justify-center gap-8 translate-y-6 relative z-10">
           <button
             type="button"
             aria-label="Show previous reason"

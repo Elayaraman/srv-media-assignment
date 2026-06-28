@@ -39,9 +39,9 @@ const Row = ({ reverse = false }) => (
 
 export const ParticipatingSchoolsSection = () => {
   return (
-    <section className="w-full bg-white py-[90px]">
+    <section className="w-full bg-white py-12">
       <div className="mx-auto max-w-[1920px] px-6 sm:px-10 lg:px-[96px]">
-        <h2 className="text-center text-[48px] font-semibold leading-[1.08] tracking-[-0.04em] text-[#2A2269]">
+        <h2 className="text-center text-[32px] font-semibold leading-[1.08] tracking-[-0.04em] text-[#2A2269]">
           Participating Schools
         </h2>
 
