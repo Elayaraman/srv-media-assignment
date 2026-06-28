@@ -203,6 +203,8 @@ body {
   font-family: var(--sans);
   line-height: 1.08;
   color: white;
+  position: relative;
+  top: -32px;
 }
 
 .hero-section__heading-discover {
