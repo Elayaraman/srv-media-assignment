@@ -16,25 +16,43 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full h-[100px] bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-[1920px] mx-auto h-full flex items-center justify-between px-6 md:px-12 lg:px-[76px] relative">
-        {/* Left side brand logo (absolute to allow overlapping hang-down) */}
-        <div className="relative h-full w-[205px]">
-          <a href="/" className="block h-full">
-            <img
-              src="/images/pse_logo.png"
-              alt="Premier Schools Exhibition"
-              className="absolute top-0 left-0 w-[205px] h-[160px] max-w-none z-20 transition-transform duration-300 hover:scale-[1.02] drop-shadow-md"
-            />
-          </a>
-        </div>
+    <header className="sticky top-0 z-50 w-full h-[100px] bg-white border-b border-gray-100 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
+      <div className="max-w-[1920px] mx-auto h-full flex items-center justify-between px-6 md:px-12 lg:px-[119px] relative">
+        
+        {/* Figma Logo White Background Shield (Y=100px to Y=140px, X=98px to X=255px) */}
+        <div 
+          className="absolute left-[98px] top-[100px] w-[157px] h-[40px] bg-white rounded-b-[6px] shadow-[0_4px_6px_rgba(0,0,0,0.08)] z-10 hidden md:block"
+          style={{ content: '""' }}
+        />
 
-        {/* Right side CTA action button */}
+        {/* Figma Brand Logo Image (X=76px, Y=3px, size 201px x 157px) */}
+        <a 
+          href="/" 
+          className="absolute left-[76px] top-[3px] w-[201px] h-[157px] z-20 block hidden md:block transition-transform duration-300 hover:scale-[1.02]"
+        >
+          <img
+            src="/images/pse_logo.png"
+            alt="Premier Schools Exhibition"
+            className="w-[201px] h-[157px] max-w-none"
+          />
+        </a>
+
+        {/* Responsive Mobile Logo (scales down for viewports < 768px) */}
+        <a href="/" className="block md:hidden z-20 w-[120px] h-[94px]">
+          <img
+            src="/images/pse_logo.png"
+            alt="Premier Schools Exhibition"
+            className="w-full h-full object-contain"
+          />
+        </a>
+
+        {/* Right side CTA Action Button (Centered vertically in the 100px header) */}
         <div className="ml-auto z-10">
           <Button variant="dark" onClick={handleRegisterClick}>
             Register Now
           </Button>
         </div>
+
       </div>
     </header>
   );
