@@ -18,15 +18,27 @@ export const Button = React.forwardRef(({
   children,
   className = '',
   type = 'button',
+  clicked,
+  onClick,
   ...props
 }, ref) => {
   const isLight = variant === 'light' || variant === 'white';
+  const [localClicked, setLocalClicked] = React.useState(false);
+  const isClicked = clicked !== undefined ? clicked : localClicked;
   const hasBg = className.split(' ').some(c => c.startsWith('bg-'));
+
+  const handleClick = (e) => {
+    setLocalClicked(true);
+    if (onClick) {
+      onClick(e);
+    }
+  };
 
   return (
     <button
       ref={ref}
       type={type}
+      onClick={handleClick}
       className={`
         pse-button group inline-flex items-stretch h-[60px] border-none p-0 cursor-pointer 
         font-sans font-bold text-sm tracking-wider uppercase box-border vertical-align-middle 
@@ -49,7 +61,10 @@ export const Button = React.forwardRef(({
         `}
       >
         <svg
-          className="block transition-transform duration-300 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
+          className={`
+            block transition-transform duration-300 ease-out origin-center
+            ${isClicked ? 'rotate-45 translate-x-0 translate-y-0' : 'group-hover:translate-x-[3px] group-hover:-translate-y-[3px]'}
+          `}
           width="60"
           height="60"
           viewBox="0 0 60 60"
@@ -78,8 +93,12 @@ export const Button = React.forwardRef(({
           box-border transition-all duration-300 ease-out whitespace-nowrap grow
           ${
             isLight
-              ? 'border-white text-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'
-              : 'border-[#000E38] text-[#030E3B] hover:bg-[#000e38]/[0.04] hover:text-[#000E38] hover:border-[#000E38]'
+              ? isClicked
+                ? 'bg-white border-white text-[#2A1459]'
+                : 'border-white text-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+              : isClicked
+                ? 'bg-[#000E38] border-[#000E38] text-white'
+                : 'border-[#000E38] text-[#030E3B] hover:bg-[#000e38]/[0.04] hover:text-[#000E38] hover:border-[#000E38]'
           }
         `}
       >
