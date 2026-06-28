@@ -8,8 +8,6 @@ const stats = [
 export const StatsSection = () => {
   return (
     <section className="relative overflow-hidden bg-white py-16 md:py-20">
-      <div className="absolute inset-x-0 top-0 h-[31px] bg-[#1b1754]" aria-hidden="true" />
-
       <div className="mx-auto flex w-full max-w-[1600px] justify-center px-6 pt-10 md:px-10">
         <div className="grid w-full max-w-[1440px] grid-cols-2 gap-x-[45px] gap-y-10 lg:grid-cols-4">
           {stats.map((stat) => (

@@ -101,15 +101,32 @@ const ImageColumn = ({ images, direction = 'down', isPaused }) => {
 /*  HeroSection – main export                                          */
 /* ------------------------------------------------------------------ */
 export const HeroSection = () => {
+  // Enquiry form state
+  const [formData, setFormData] = useState({
+    parentName: '',
+    phone: '',
+    grade: '',
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   // Image scroller pause
-  const goToSlide = (index) => {
-    stopSlider();
-    setActiveSlide(index);
-    startSlider();
+  const [scrollerPaused, setScrollerPaused] = useState(false);
+
+  // Form handlers
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const nextSlide = () => goToSlide((activeSlide + 1) % locationSlides.length);
-  const prevSlide = () => goToSlide((activeSlide - 1 + locationSlides.length) % locationSlides.length);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    // Reset after 3s
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setFormData({ parentName: '', phone: '', grade: '' });
+    }, 3000);
+  };
 
   return (
     <section
@@ -117,10 +134,6 @@ export const HeroSection = () => {
       className="hero-section"
       aria-label="Premier Schools Exhibition hero"
     >
-      {/* Deep gradient background */}
-      <div className="hero-section__bg" aria-hidden="true">
-        <div className="hero-section__glow" />
-      </div>
 
       <div className="hero-section__container">
         {/* LEFT: Event copy & location slider */}
@@ -139,77 +152,22 @@ export const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Location / Date Slider */}
-          <div
-            className="hero-location-slider"
-            role="region"
-            aria-label="Event locations and dates"
-            aria-roledescription="carousel"
-            onMouseEnter={stopSlider}
-            onMouseLeave={startSlider}
-          >
-            <div className="hero-location-slider__track">
-              {locationSlides.map((slide, index) => (
-                <div
-                  key={slide.venue}
-                  className={`hero-location-slide ${index === activeSlide ? 'hero-location-slide--active' : ''}`}
-                  role="tabpanel"
-                  aria-hidden={index !== activeSlide}
-                  id={`hero-slide-${index}`}
-                >
-                  <div className="hero-location-slide__pill">
-                    <div className="hero-location-slide__pill-left">
-                      <span className="hero-location-slide__venue">{slide.venue}</span>
-                      <span className="hero-location-slide__area">{slide.area}</span>
-                    </div>
-                    <div className="hero-location-slide__pill-divider" />
-                    <div className="hero-location-slide__pill-right">
-                      <span className="hero-location-slide__date">{slide.date}</span>
-                      <span className="hero-location-slide__time">{slide.time}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          {/* Static Location / Date Pill */}
+          <div className="mt-8 relative inline-flex items-center justify-center p-[6px] bg-[#FADDB5] rounded-full shadow-sm w-fit max-w-full">
+            <div className="flex items-center px-8 py-3 rounded-full border-[1.5px] border-dashed border-[#D7AC77] w-full gap-6">
+              
+              <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
+                <span className="text-[#1B1754] font-bold text-2xl leading-tight">Apparel House,</span>
+                <span className="text-[#1B1754] text-lg font-medium opacity-90">Sec 44, Gurugram</span>
+              </div>
+              
+              <div className="w-[1.5px] h-[46px] bg-[#1B1754]/30 shrink-0" />
+              
+              <div className="flex flex-col text-left shrink-0 whitespace-nowrap">
+                <span className="text-[#1B1754] font-bold text-2xl leading-tight">2-3 August 2025</span>
+                <span className="text-[#1B1754] text-lg font-medium opacity-90">Sat-Sun | 10AM - 6PM</span>
+              </div>
 
-            {/* Slide navigation dots */}
-            <div className="hero-location-slider__dots" role="tablist" aria-label="Location slides">
-              {locationSlides.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === activeSlide}
-                  aria-label={`Go to slide ${i + 1}`}
-                  aria-controls={`hero-slide-${i}`}
-                  className={`hero-location-slider__dot ${i === activeSlide ? 'hero-location-slider__dot--active' : ''}`}
-                  onClick={() => goToSlide(i)}
-                />
-              ))}
-            </div>
-
-            {/* Arrow controls for accessibility */}
-            <div className="hero-location-slider__arrows">
-              <button
-                type="button"
-                aria-label="Previous location"
-                className="hero-location-slider__arrow"
-                onClick={prevSlide}
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M10 4L6 8L10 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                aria-label="Next location"
-                className="hero-location-slider__arrow"
-                onClick={nextSlide}
-              >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
@@ -229,10 +187,11 @@ export const HeroSection = () => {
         </div>
 
         {/* RIGHT: Enquiry Form */}
-        <div className="hero-section__right">
+        <div className="hero-section__right ">
           <form
             id="register-form"
             className="hero-enquiry-form"
+            onSubmit={handleSubmit}
             noValidate
           >
             <h2 className="hero-enquiry-form__title">Enquire Now</h2>
@@ -256,28 +215,36 @@ export const HeroSection = () => {
                 placeholder="Phone number"
                 className="hero-enquiry-form__input"
                 autoComplete="tel"
-                inputMode="numeric"
+                inputMode="numeric" q
                 maxLength={10}
               />
             </div>
 
             <div className="hero-enquiry-form__field">
-              <select
+              <textarea
                 id="grade"
                 name="grade"
-                defaultValue=""
-                className="hero-enquiry-form__input hero-enquiry-form__select"
-              >
-                <option value="" disabled>Which grade are you looking for?</option>
-                {gradeOptions.map((grade) => (
-                  <option key={grade} value={grade}>{grade}</option>
-                ))}
-              </select>
+                placeholder="Which grade are you looking for?"
+                className="hero-enquiry-form__input resize-none"
+                rows={3}
+              />
             </div>
 
-            <Button variant="light" className="hero-enquiry-form__submit bg-[#2A1459]" type="button">
-              Submit
-            </Button>
+            {formSubmitted ? (
+              <div className="hero-enquiry-form__success" role="status">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="11" stroke="#22C55E" strokeWidth="2" />
+                  <path d="M7 12.5L10.5 16L17 9" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span>Thank you! We'll get in touch soon.</span>
+              </div>
+            ) : (
+              <span className='w-[150px]'>
+                <Button variant="light" className="hero-enquiry-form__submit bg-[#2A1459]" type="submit">
+                  Submit
+                </Button>
+              </span>
+            )}
           </form>
         </div>
       </div>

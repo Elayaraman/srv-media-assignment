@@ -7,27 +7,21 @@ import { Button } from './Button';
  * 2. Sticky Dark Header (Header-02): always present under the white header (lower z-index); sticks to top once the white header scrolls away.
  */
 export const Header = () => {
-  const handleRegisterClick = () => {
-    const registerForm = document.getElementById('register-form');
-    if (registerForm) {
-      registerForm.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <>
       {/* 1. Default White Header (Flows with document scroll) */}
       <header className="relative z-50 w-full h-[100px] bg-white border-b border-gray-100 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.05)]">
         <div className="max-w-[1920px] mx-auto h-full flex items-center justify-between px-6 md:px-12 lg:px-[119px] relative">
-          
+
           {/* Logo White Background Shield (Y=100px to Y=140px, X=98px to X=255px) */}
-          <div 
+          <div
             className="absolute left-[98px] top-[100px] w-[157px] h-[40px] bg-white rounded-b-[6px] shadow-[0_4px_6px_rgba(0,0,0,0.08)] z-10 hidden md:block"
           />
 
           {/* Figma Brand Logo Image (X=76px, Y=3px, size 201px x 157px) */}
-          <a 
-            href="/" 
+          <a
+            href="/"
             className="absolute left-[76px] top-[3px] w-[201px] h-[157px] z-20 block hidden md:block transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
@@ -48,7 +42,7 @@ export const Header = () => {
 
           {/* Right side CTA Action Button (Centered vertically in the 100px header) */}
           <div className="ml-auto z-10">
-            <Button variant="dark" onClick={handleRegisterClick}>
+            <Button variant="dark" >
               Register Now
             </Button>
           </div>
@@ -78,7 +72,6 @@ export const Header = () => {
           <div className="ml-auto z-10">
             <button
               type="button"
-              onClick={handleRegisterClick}
               className="inline-flex items-center justify-between w-[224px] h-[62px] bg-white rounded-lg pl-8 pr-5 cursor-pointer border-none transition-opacity duration-200 hover:opacity-90 active:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               <span className="font-sans font-bold text-sm tracking-[0.12em] uppercase text-[#194C9C] whitespace-nowrap">

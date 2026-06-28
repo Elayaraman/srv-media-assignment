@@ -63,7 +63,7 @@ export const MustVisitSection = () => {
 
         <div
           ref={scrollerRef}
-          className="flex snap-x snap-mandatory gap-[18px] overflow-x-auto scroll-smooth pl-[101px] pr-[101px] [scrollbar-width:none] max-md:pl-6 max-md:pr-6 [&::-webkit-scrollbar]:hidden"
+          className="flex gap-[18px] overflow-x-auto scroll-smooth pl-[101px] pr-[101px] [scrollbar-width:none] max-md:pl-6 max-md:pr-6 [&::-webkit-scrollbar]:hidden"
         >
           {reasons.map((reason) => (
             <article
