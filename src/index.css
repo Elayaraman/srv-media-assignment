@@ -147,6 +147,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -639,10 +640,12 @@ body {
 
 /* Ensure wrappers don't break desktop grid */
 @media (min-width: 769px) {
+
   .hero-section__mobile-bg-wrapper,
   .hero-section__pill-container {
     display: contents;
   }
+
   .hero-mobile-scroller {
     display: none;
   }
@@ -664,13 +667,16 @@ body {
 
   /* SVG Background wrapper for top section */
   .hero-section__mobile-bg-wrapper {
-    background-color: white; /* Make the transparent area under the arc white */
+    background-color: white;
+    /* Make the transparent area under the arc white */
     background-image: url('/images/mobile-hero-bg.svg');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 32px 24px 40px; /* Space for the arc at the bottom */
-    margin: -32px -24px 0; /* Full width */
+    padding: 32px 24px 40px;
+    /* Space for the arc at the bottom */
+    margin: -32px -24px 0;
+    /* Full width */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -680,12 +686,13 @@ body {
 
   .hero-mobile-scroller {
     width: 100%;
-    overflow: hidden;
+    scale: 0.8;
     margin-bottom: 32px;
   }
 
   .hero-mobile-track {
     display: flex;
+    align-items: center;
     gap: 16px;
     width: max-content;
     animation: scroll-horizontal 30s linear infinite;
@@ -693,8 +700,13 @@ body {
   }
 
   @keyframes scroll-horizontal {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .hero-mobile-cell {
@@ -703,6 +715,15 @@ body {
     border-radius: 80px;
     overflow: hidden;
     flex-shrink: 0;
+  }
+
+  /* Stagger the cells up and down to match desktop */
+  .hero-mobile-cell:nth-child(odd) {
+    transform: translateY(32px);
+  }
+
+  .hero-mobile-cell:nth-child(even) {
+    transform: translateY(-32px);
   }
 
   .hero-section__left {
