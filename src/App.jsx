@@ -9,6 +9,7 @@ import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { ParticipatingSchoolsSection } from './components/ParticipatingSchoolsSection'
 import { MustVisitSection } from './components/MustVisitSection'
+import { StatsSection } from './components/StatsSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -52,6 +53,7 @@ function App() {
         </div>
       </section>
 
+      <StatsSection />
       <ParticipatingSchoolsSection />
       <ChooseSchoolSection />
       <AppointmentBookingSection />
