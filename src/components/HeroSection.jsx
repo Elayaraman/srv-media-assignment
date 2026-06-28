@@ -165,6 +165,27 @@ export const HeroSection = () => {
         <div className="hero-section__left">
           
           <div className="hero-section__mobile-bg-wrapper">
+            {/* Inline SVG background for mobile (replaces background-image) */}
+            <svg
+              className="hero-section__mobile-bg-svg md:hidden"
+              viewBox="0 0 430 429"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M430 428.195C362.399 411.187 290.319 402 215.5 402C140.312 402 67.8903 411.277 0 428.446V0H430V428.195Z"
+                fill="url(#mobile-hero-grad)"
+              />
+              <defs>
+                <linearGradient id="mobile-hero-grad" x1="215" y1="439" x2="215" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#000E38" />
+                  <stop offset="1" stopColor="#3F186A" />
+                </linearGradient>
+              </defs>
+            </svg>
+
             {/* MOBILE ONLY: Scroller */}
             <MobileHorizontalScroller 
               images={[...heroColumns[0], ...heroColumns[1], ...heroColumns[2]]} 
@@ -186,7 +207,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Static Location / Date Pill */}
-          <div className="hero-section__pill-container">
+          <div className="hero-section__pill-container hero-section__mobile-bg-white">
             <div
               className="-mt-2 md:mt-8 relative inline-flex items-center justify-center p-[4px] md:p-[6px] rounded-[40px] shadow-sm w-fit max-w-full z-10"
               style={{ background: 'linear-gradient(180deg, #FFCC81 -43.71%, #E9C79F 118.98%)' }}
@@ -224,8 +245,8 @@ export const HeroSection = () => {
           <ImageColumn images={heroColumns[2]} direction="down" isPaused={scrollerPaused} className="mt-12 lg:mt-[72px]" />
         </div>
 
-        {/* RIGHT: Enquiry Form (Hidden on mobile) */}
-        <div className="hero-section__right hidden md:flex">
+        {/* RIGHT: Enquiry Form (Hidden below lg) */}
+        <div className="hero-section__right hidden lg:flex">
           <form
             id="register-form"
             className="hero-enquiry-form"
