@@ -42,7 +42,7 @@ export const Button = React.forwardRef(({
       className={`
         pse-button group inline-flex items-stretch h-[60px] border-none p-0 cursor-pointer 
         font-sans font-bold text-sm tracking-wider uppercase box-border vertical-align-middle 
-        transition-transform duration-200 active:scale-[0.97] focus-visible:outline-none 
+        transition-transform duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] active:scale-[0.97] focus-visible:outline-none 
         focus-visible:ring-3 focus-visible:ring-purple-500/60 disabled:opacity-60 disabled:cursor-not-allowed 
         disabled:transform-none rounded ${hasBg ? '' : 'bg-transparent'}
         ${className}
@@ -52,7 +52,7 @@ export const Button = React.forwardRef(({
       <span
         className={`
           flex items-center justify-center w-[60px] h-[60px] rounded-l box-border 
-          transition-all duration-300 ease-out relative overflow-hidden shrink-0
+          transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] relative overflow-hidden shrink-0
           ${
             isLight
               ? 'bg-white text-[#2A1459] hover:bg-[#f4f3ec] hover:text-[#1e0b40]'
@@ -62,7 +62,7 @@ export const Button = React.forwardRef(({
       >
         <svg
           className={`
-            block transition-transform duration-300 ease-out origin-center
+            block transition-transform duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] origin-center
             ${isClicked ? 'rotate-45 translate-x-0 translate-y-0' : 'group-hover:translate-x-[3px] group-hover:-translate-y-[3px]'}
           `}
           width="60"
@@ -90,7 +90,7 @@ export const Button = React.forwardRef(({
       <span
         className={`
           flex items-center justify-center px-8 h-[60px] rounded-r border-2 border-l-0 border-solid 
-          box-border transition-all duration-300 ease-out whitespace-nowrap grow
+          box-border transition-all duration-[500ms] ease-[cubic-bezier(0.42,0,1,1)] whitespace-nowrap grow
           ${
             isLight
               ? isClicked
