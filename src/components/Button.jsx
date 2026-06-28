@@ -1,9 +1,9 @@
 import React from 'react';
-import './Button.css';
 
 /**
  * Custom interactive Button component supporting dark gradient and light white styles.
  * Mimics the premium double-box SVG aesthetic with accessibility and micro-interactions.
+ * Styled with Tailwind CSS.
  * 
  * @param {Object} props
  * @param {'dark' | 'light' | 'gradient' | 'white'} [props.variant='dark'] - Styling variant
@@ -20,22 +20,36 @@ export const Button = React.forwardRef(({
   type = 'button',
   ...props
 }, ref) => {
-  // Normalize variants:
-  // - 'dark' or 'gradient' mapped to 'dark-variant'
-  // - 'light' or 'white' mapped to 'light-variant'
   const isLight = variant === 'light' || variant === 'white';
-  const variantClass = isLight ? 'pse-btn-light' : 'pse-btn-dark';
+  const hasBg = className.split(' ').some(c => c.startsWith('bg-'));
 
   return (
     <button
       ref={ref}
       type={type}
-      className={`pse-button ${variantClass} ${className}`}
+      className={`
+        pse-button group inline-flex items-stretch h-[60px] border-none p-0 cursor-pointer 
+        font-sans font-bold text-sm tracking-wider uppercase box-border vertical-align-middle 
+        transition-transform duration-200 active:scale-[0.97] focus-visible:outline-none 
+        focus-visible:ring-3 focus-visible:ring-purple-500/60 disabled:opacity-60 disabled:cursor-not-allowed 
+        disabled:transform-none rounded ${hasBg ? '' : 'bg-transparent'}
+        ${className}
+      `}
       {...props}
     >
-      <span className="pse-btn-icon-box">
+      <span
+        className={`
+          flex items-center justify-center w-[60px] h-[60px] rounded-l box-border 
+          transition-all duration-300 ease-out relative overflow-hidden shrink-0
+          ${
+            isLight
+              ? 'bg-white text-[#2A1459] hover:bg-[#f4f3ec] hover:text-[#1e0b40]'
+              : 'bg-gradient-to-r from-[#3F186A] to-[#000E38] text-white hover:from-[#4d2080] hover:to-[#001654]'
+          }
+        `}
+      >
         <svg
-          className="pse-btn-arrow-svg"
+          className="block transition-transform duration-300 ease-out group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
           width="60"
           height="60"
           viewBox="0 0 60 60"
@@ -58,7 +72,17 @@ export const Button = React.forwardRef(({
           />
         </svg>
       </span>
-      <span className="pse-btn-text-box">
+      <span
+        className={`
+          flex items-center justify-center px-8 h-[60px] rounded-r border-2 border-l-0 border-solid 
+          box-border transition-all duration-300 ease-out whitespace-nowrap grow
+          ${
+            isLight
+              ? 'border-white text-white hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'
+              : 'border-[#000E38] text-[#030E3B] hover:bg-[#000e38]/[0.04] hover:text-[#000E38] hover:border-[#000E38]'
+          }
+        `}
+      >
         {text || children}
       </span>
     </button>
