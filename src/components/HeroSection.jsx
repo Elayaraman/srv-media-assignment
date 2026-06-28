@@ -71,12 +71,12 @@ const gradeOptions = [
 /* ------------------------------------------------------------------ */
 /*  ImageColumn – a single auto-scrolling vertical strip of images    */
 /* ------------------------------------------------------------------ */
-const ImageColumn = ({ images, direction = 'down', isPaused }) => {
+const ImageColumn = ({ images, direction = 'down', isPaused, className = '' }) => {
   // Duplicate images for seamless loop
   const strip = [...images, ...images];
 
   return (
-    <div className="hero-image-column" aria-hidden="true">
+    <div className={`hero-image-column ${className}`} aria-hidden="true">
       <div
         className={`hero-image-track ${direction === 'up' ? 'hero-image-track--up' : 'hero-image-track--down'}`}
         style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
@@ -228,7 +228,7 @@ export const HeroSection = () => {
                 id="grade"
                 name="grade"
                 placeholder="Which grade are you looking for?"
-                className="hero-enquiry-form__input resize-none"
+                className="hero-enquiry-form__input area h-auto resize-none"
                 rows={3}
               />
             </div>
