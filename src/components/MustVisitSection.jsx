@@ -46,27 +46,23 @@ export const MustVisitSection = () => {
 
   return (
     <section className="relative isolate overflow-hidden bg-white text-white mb-12 md:mb-[72px]">
-      <svg
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
-        preserveAspectRatio="none"
-        viewBox="0 0 1920 768"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path d="M0 583H1920V617.816C1169 819.046 748.424 815.194 0 617.816V583Z" fill="url(#must-visit-paint0)" />
-        <path d="M0 0H1920V583H0V0Z" fill="url(#must-visit-paint1)" />
-        <defs>
-          <linearGradient id="must-visit-paint0" x1="960" y1="767.298" x2="960" y2="207" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#000E38" />
-            <stop offset="1" stopColor="#3F186A" />
-          </linearGradient>
-          <linearGradient id="must-visit-paint1" x1="960" y1="583" x2="960" y2="0" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#000E38" />
-            <stop offset="1" stopColor="#3F186A" />
-          </linearGradient>
-        </defs>
-      </svg>
+      {/* Background container */}
+      <div className="absolute inset-0 -z-10 flex flex-col pointer-events-none">
+        {/* Main body of background */}
+        <div className="flex-1 bg-gradient-to-b from-[#3F186A] to-[#000E38]" />
+        
+        {/* Constrained-height curve SVG at the bottom */}
+        <svg
+          className="w-full h-[12vw] min-h-[60px] max-h-[236px] shrink-0"
+          preserveAspectRatio="none"
+          viewBox="0 0 1920 236"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M0 0H1920V34.816C1169 236.046 748.424 232.194 0 34.816V0Z" fill="#000E38" />
+        </svg>
+      </div>
 
       <div className="relative mx-auto min-h-[768px] w-full max-w-[1920px] overflow-hidden px-0 pb-[116px] pt-[92px] max-md:min-h-[718px] max-md:pb-20 max-md:pt-16">
         <h2 className="mx-auto mb-[52px] max-w-[980px] px-6 text-center font-sans text-[48px] font-bold leading-[1.12] text-white max-md:mb-10 max-md:text-[34px] max-sm:text-[28px]">
@@ -93,12 +89,12 @@ export const MustVisitSection = () => {
           ))}
         </div>
 
-        <div className="mt-[72px] flex justify-center gap-8 translate-y-6 relative z-10">
+        <div className="mt-[44px] flex justify-center gap-8 translate-y-6 relative z-10">
           <button
             type="button"
             aria-label="Show previous reason"
             onClick={() => scrollCards(-1)}
-            className="flex h-[62px] w-[62px] items-center justify-center rounded-full border-[2.25px] border-white bg-transparent text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="flex h-[58px] w-[58px] items-center justify-center rounded-full border-[2.25px] border-white bg-transparent text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
             <svg width="31" height="20" viewBox="0 0 31 20" fill="none" aria-hidden="true">
               <path d="M10.4 1.25L1.75 10L10.4 18.75" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -109,7 +105,7 @@ export const MustVisitSection = () => {
             type="button"
             aria-label="Show next reason"
             onClick={() => scrollCards(1)}
-            className="flex h-[62px] w-[62px] items-center justify-center rounded-full bg-white text-[#2A1459] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            className="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-white text-[#2A1459] transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           >
             <svg width="31" height="20" viewBox="0 0 31 20" fill="none" aria-hidden="true">
               <path d="M20.6 1.25L29.25 10L20.6 18.75" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
